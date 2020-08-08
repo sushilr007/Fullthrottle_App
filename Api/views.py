@@ -1,17 +1,26 @@
+from django.shortcuts import render
 
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 
-from rest_framework.decorators import api_view
+from rest_framework import viewsets
+from rest_framework import permissions
 from rest_framework.response import Response
-from rest_framework import status
-import base64
-import io
+
+from .models import *
+from .serializers import *
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
-@api_view(['GET', 'POST'])
-def index(request):
-    if request.method == 'POST':
-        text = "Welcome to first view port"
-        return Response(text, status=status.HTTP_201_CREATED)
-    elif request.method == 'GET':
-        return HttpResponse("Hello, world. You're at the polls index.")
+class ActivityPeriodViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = ActivityPeriod.objects.all()
+    serializer_class = ActivityPeriodSerializer
