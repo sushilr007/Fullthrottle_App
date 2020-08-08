@@ -9,5 +9,5 @@ class Command(BaseCommand):
 
         user_obj = User.objects.create(unique_id="W012A3CDE",real_name="Sushil Raverkar", tz="Pune")
         user_obj.save()
-        activityt_obj = ActivityPeriod.objects.create(user_activity=user_obj, start_time="Feb 1 2020  1:33PM", end_time="2020-1-25 12:10")
+        activityt_obj = ActivityPeriod.objects.create(user_activity=user_obj, start_time="2020-1-25 12:10", end_time="2020-1-25 12:10")
         activityt_obj.save()
