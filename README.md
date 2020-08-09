@@ -19,7 +19,9 @@ heroku create
 git add .
 git commit -m "Commit message"
 git push heroku master
-Heroku will automatically handle the changes, re-build NLU model and re-start the server.
+heroku run bash 
+python manage.py migrate
+python manage.py runserver
 ```
 
 ## To run locally
@@ -32,9 +34,8 @@ python manage.py runserver
 Go to browser at paste URL where the server is running
 
 ## API Endpoint 
+There are two user id added in database.
 
+W07QCRPA4 and W012A3CDE. 
 
-
-## Contributing
-
-I love contributions, so please feel free to fix bugs, improve things, provide documentation. Just send a pull request.
+https://pure-dawn-09272.herokuapp.com/get_user_info/user/<USER_ID>/
